@@ -1,0 +1,20 @@
+/*SIDEBAR*/
+#sidebar {
+    background-color: #2A364B;
+}
+
+.logo-container {
+    max-width: 125px;
+    min-width: 60px;
+}
+
+i.bi.bi-house, i.bi.bi-people{
+    margin-left: 20px;
+}
+
+i.bi {
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+}
+
