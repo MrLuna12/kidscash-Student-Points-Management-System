@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //return view('students', ["students"=>Student::all()]);
-    return view('home');
-});
-
+//This is for the log-in stuff
+//Route::get('/', function () {
+//    //return view('students', ["students"=>Student::all()]);
+//    return view('home');
+//});
+//
+//Auth::routes();
+//
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//
 
 Route::get('/students', [StudentController::class, 'index']);
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

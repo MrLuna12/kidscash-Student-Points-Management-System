@@ -2,24 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Leader extends Model
 {
     protected $fillable = ['name', 'email', 'room_id'];
 
-    public function room()
+    public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);
     }
 
-    public function students()
+    public function students(): BelongsToMany
     {
         return $this->belongsToMany(Student::class, 'leader_student');
     }
 
-    public function leader_students()
+    public function leader_students(): BelongsToMany
     {
         return $this->belongsToMany(Student::class, 'leader_student');
     }
