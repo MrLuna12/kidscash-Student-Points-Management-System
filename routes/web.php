@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 //This is for the log-in stuff
-//Route::get('/', function () {
+// Route::get('/', function () {
 //    //return view('students', ["students"=>Student::all()]);
 //    return view('home');
-//});
+// });
 //
 //Auth::routes();
 //
@@ -27,3 +27,7 @@ use Illuminate\Support\Facades\Route;
 //
 
 Route::get('/students', [StudentController::class, 'index']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});

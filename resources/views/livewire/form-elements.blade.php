@@ -7,20 +7,22 @@
     </select>
 {{--    <h4>Room: @json($selectedRoom)</h4>--}}
 
-    <table class="table">
-        <tr>
-            <th>Name</th>
-            <th>Points</th>
-            <th>Room</th>
-        </tr>
-        @foreach ($students as $student)
-            @if($selectedRoom == $student->room->id)
-                <tr>
-                    <td>{{$student->name}}</td>
-                    <td>{{$student->points}}</td>
-                    <td>{{$student->room->name}}</td>
-                </tr>
-            @endif
-        @endforeach
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($students as $student)
+                @if($selectedRoom == $student->room->id)
+                    <tr>
+                        <td>{{$student->name}}</td>
+                        <td>{{$student->points}}</td>
+                    </tr>
+                @endif
+            @endforeach
+        </tbody>
     </table>
 </div>
