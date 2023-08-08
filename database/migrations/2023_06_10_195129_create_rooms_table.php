@@ -6,14 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRoomsTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('min_age');
-            $table->integer('max_age');
+//            $table->integer('min_age');
+//            $table->integer('max_age');
             $table->timestamps();
+
         });
     }
 

@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->dateTime('dob');
             $table->integer('points');
+            $table->string('grade');
+            $table->foreignId('room_id')->constrained('rooms');
             $table->timestamps();
-            $table->foreignId('room_id')->constrained();
         });
     }
 

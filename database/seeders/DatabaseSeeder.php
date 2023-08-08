@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Student::truncate();
-        Room::truncate();
+//        Student::truncate();
+//        Room::truncate();
 
         // //Creating Students
         // Student::create([
