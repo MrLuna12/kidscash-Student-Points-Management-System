@@ -42,9 +42,7 @@
                 <!-- Middle Column main content column -->
                 <div class="col-10 col-sm-10 mt-5">
                     {{-- Put your main content here --}}
-                    <h1>Students</h1>
-                    @livewire('form-elements')
-{{--                    {{$slot}}--}}
+                   {{$slot}}
                 </div>
             </div>
         </div>
