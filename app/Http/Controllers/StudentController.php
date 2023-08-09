@@ -11,4 +11,12 @@ class StudentController extends Controller
     public function index () {
         return view('index');
     }
+
+    public function add () {
+        return view('add');
+    }
+
+    public function spend () {
+        return view('spend');
+    }
 }

@@ -28,6 +28,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/students', [StudentController::class, 'index']);
 
+Route::get('/students/add', [StudentController::class, 'add']);
+Route::get('/students/spend', [StudentController::class, 'spend']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });

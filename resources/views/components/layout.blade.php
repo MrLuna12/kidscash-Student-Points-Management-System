@@ -40,7 +40,12 @@
                 </div>
 
                 <!-- Middle Column main content column -->
-                <div class="col-10 col-sm-10 mt-5">
+                <div class="col-10 col-sm-10 pt-5" id="main-content">
+                    {{-- <div class="col-12 bg-white ">
+                            <h3>Woodlake Kids</h3>
+
+                        </div> --}}
+
                     {{-- Put your main content here --}}
                    {{$slot}}
                 </div>

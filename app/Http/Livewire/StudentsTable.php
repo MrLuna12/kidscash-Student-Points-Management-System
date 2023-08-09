@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class StudentsTable extends Component
 {
-    public $selectedRoom = '1';
+    public $selectedRoom;
 
     public function render()
     {

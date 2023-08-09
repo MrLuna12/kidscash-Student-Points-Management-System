@@ -1,3 +1,3 @@
 <x-layout>
-@livewire('students-table')
+    @livewire('students-table')
 </x-layout>
