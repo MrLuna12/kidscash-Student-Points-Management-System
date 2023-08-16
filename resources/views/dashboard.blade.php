@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Kids Cash</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Bootstrap -->
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-        @livewireStyles
-
-
-    </head>
-    <body>
-        <h1><a href="/students">Dashboard</a></h1>
-    </body>
-</html>
+<x-layout>
+    @foreach($rooms as $room)
+        <option value="{{$room->id}}">{{$room->name}}</option>
+        <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">{{$room->name}}</h5>
+              <a href="/{{ strtolower($room->name) }}/students" class="btn btn-primary">Button</a>
+            </div>
+          </div>
+    @endforeach
+</x-layout>
