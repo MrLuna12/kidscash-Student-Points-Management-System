@@ -27,8 +27,8 @@
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a class="nav-link d-sm-inline-block" href="/dashboard">
-                                <i class="bi bi-house "><span class="ms-2 d-none d-sm-inline">Dashboards</span></i>
+                            <a class="nav-link d-sm-inline-block" href="/rooms">
+                                <i class="bi bi-house "><span class="ms-2 d-none d-sm-inline">Rooms</span></i>
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
