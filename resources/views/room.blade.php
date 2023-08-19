@@ -1,4 +1,5 @@
 <x-layout>
+    <h1>Rooms</h1>
     @foreach($rooms as $room)
         <option value="{{$room->id}}">{{$room->name}}</option>
         <div class="card w-50">
