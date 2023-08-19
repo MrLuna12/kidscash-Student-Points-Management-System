@@ -41,7 +41,7 @@ Route::get('/rooms', [RoomController::class, 'getAllRooms']);
 Route::get('/rooms/{room:name}', [RoomController::class, 'getRoomByName']);
 
 Route::get('/rooms/{room:name}/students/{student}/earn', function(Room $room, Student $student) {
-    return view('add', [
+    return view('earn', [
         'student' => $student,
         'room' => $room
     ]);

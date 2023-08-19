@@ -14,14 +14,10 @@
                     <td>{{$student->name}}</td>
                     <td>{{$student->points}}</td>
                     <td>
-                        @if(view('add'))
                         <a class="btn btn-success" href="{{strtolower($room->name)}}/students/{{$student->id}}/earn" role="button">Add Points</a>
-                        @endif
 
-                        @if(view('spend'))
-                            <a class="btn btn-danger" href="{{$room->name}}/students/{{$student->id}}/shop" role="button">Spend Points</a>
+                        <a class="btn btn-danger" href="{{$room->name}}/students/{{$student->id}}/shop" role="button">Spend Points</a>
 
-                        @endif
                     </td>
                 </tr>
         @endforeach
