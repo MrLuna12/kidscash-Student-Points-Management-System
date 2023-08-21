@@ -38,14 +38,9 @@ Route::get('/students/spend', [StudentController::class, 'spend']);
 
 
 Route::get('/rooms', [RoomController::class, 'getAllRooms']);
-Route::get('/rooms/{room:name}', [RoomController::class, 'getRoomByName']);
+Route::get('/rooms/{room:name}', [RoomController::class, 'getStudentsByRoom']);
 
-Route::get('/rooms/{room:name}/students/{student}/earn', function(Room $room, Student $student) {
-    return view('earn', [
-        'student' => $student,
-        'room' => $room
-    ]);
-});
+Route::get('/rooms/{room:name}/students/{student}/earn', [RoomController::class, 'getPointList']);
 
 Route::get('/rooms/{room:name}/students/{student}/shop', function(Room $room, Student $student) {
     return view('spend', [
