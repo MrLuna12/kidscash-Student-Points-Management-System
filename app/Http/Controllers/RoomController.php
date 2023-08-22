@@ -17,11 +17,11 @@ class RoomController extends Controller
         return view('student', ['room' => $room]);
     }
 
-    public function getPointList(Request $request, Room $room, Student $student, Point $points)
+    public function getPointList(Request $request, Room $roomName, Student $studentId, Point $points)
     {
         return view('earn', [
-            'student' => $student,
-            'room' => $room,
+            'student' => $studentId,
+            'room' => $roomName,
             'points' => $points::all()
         ]);
     }
