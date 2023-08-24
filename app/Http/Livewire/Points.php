@@ -29,7 +29,9 @@ class Points extends Component
         $student->save();
 
         $this->reset(); // Clear selected points
-        // Redirect or emit an event
+
+        // Redirect back to the student view
+        return redirect('/rooms/' . strtolower($student->room->name));
     }
 
     public function render()
@@ -37,6 +39,5 @@ class Points extends Component
         $points = Point::all();
         return view('livewire.points', compact('points'));
     }
-
 
 }

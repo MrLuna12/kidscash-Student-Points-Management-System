@@ -11,7 +11,7 @@
                 </li>
             </ul>
         @endforeach
-        <p>Points Selected : {{ var_export($selectedPoints) }}</p>
+{{--        <p>Points Selected : {{ var_export($selectedPoints) }}</p>--}}
         <button class="btn btn-primary" type="submit">Submit | Total {{$this->getTotalPoints()}}</button>
     </form>
 </div>
