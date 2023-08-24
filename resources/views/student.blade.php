@@ -21,6 +21,7 @@
                     </td>
                 </tr>
         @endforeach
+
         </tbody>
     </table>
 </x-layout>

@@ -1,19 +1,9 @@
 <x-layout>
-        <a href="/rooms/{{strtolower($room->name)}}" class="btn">
-            <i class="bi bi-backspace"> Go Back</i>
-        </a>
-        <h1>I am the earning points page</h1>
-{{--    {{$student}}--}}
+    <a href="/rooms/{{strtolower($room->name)}}" class="btn">
+        <i class="bi bi-backspace"> Go Back</i>
+    </a>
 
-    @foreach($points as $point)
-        <ul class="list-group">
-            <li class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="" id="">
-                <label class="form-check-label" for="firstCheckbox">
-                    {{$point->name}}
-                    <span class="badge bg-primary rounded-pill">{{$point->value}}</span>
-                </label>
-            </li>
-        </ul>
-    @endforeach
+    <h1>{{$student->name}} {{$student->points}}</h1>
+
+    @livewire('points', ['studentId' => $student->id])
 </x-layout>
