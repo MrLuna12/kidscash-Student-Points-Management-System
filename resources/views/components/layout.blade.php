@@ -8,8 +8,7 @@
         <!-- Bootstrap -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         @livewireStyles
-
-
+        @stack('other-scripts')
     </head>
 
     <body>
