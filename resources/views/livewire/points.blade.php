@@ -1,10 +1,15 @@
 <div>
+    <button class="btn" wire:click.prevent="goBack">
+        <i class="bi bi-backspace"> Go Back</i>
+    </button>
+
     @if (Session::has('error_message'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Error!</strong> {{ session('error_message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+
     <form wire:submit.prevent="submitPoints">
         @foreach($points as $point)
             <ul class="list-group">
@@ -25,3 +30,24 @@
 {{--            <p>Points Selected : {{ var_export($selectedPoints) }}</p>--}}
     </form>
 </div>
+
+@push('scripts')
+    <script>
+        Livewire.on('show-confirm-modal', () => {
+            Swal.fire({
+                title: 'Save Changes?',
+                text: 'Do you want to save your changes?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                @this.call('submitPoints');
+                } else {
+                    window.history.back();
+                }
+            });
+        });
+    </script>
+@endpush

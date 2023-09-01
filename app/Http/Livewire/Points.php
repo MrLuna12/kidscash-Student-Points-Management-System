@@ -6,11 +6,13 @@ use App\Models\Point;
 use App\Models\Student;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Points extends Component
 {
     public array $selectedPoints = [];
     public int $studentId;
+    public $pointSelected = false;
 
     public function mount($studentId): void
     {
@@ -25,23 +27,6 @@ class Points extends Component
     }
 
 
-//    public function submitPoints()
-//    {
-//        // Perform the transaction logic here
-//        try {
-//            $totalPoints = $this->getTotalPoints();
-//            $student = Student::findOrFail($this->studentId);
-//            $student->points += $totalPoints;
-//            $student->save();
-//
-//            return redirect('/rooms/' . strtolower($student->room->name))->with('success_message', "Point transaction of $totalPoints completed");
-//
-//        } catch (\Exception $e) {
-//            // Set error message
-//            session()->flash('error_message', 'An error occurred during the transaction');
-//        }
-//    }
-
     private function performTransaction()
     {
         $totalPoints = $this->getTotalPoints();
@@ -50,7 +35,7 @@ class Points extends Component
         $student->save();
 
         // Redirect user
-        return redirect('/rooms/' . strtolower($student->room->name))->with('success_message', "Point transaction of $totalPoints completed");
+        return redirect('/rooms/' . strtolower($student->room->name))->with('success', "Point transaction of $totalPoints completed");
     }
 
     public function submitPoints(): void
@@ -68,6 +53,21 @@ class Points extends Component
             session()->flash('error_message', 'An error occurred during the transaction.');
         }
     }
+
+    public function updatedSelectedPoints()
+    {
+        $this->pointSelected = count(array_filter($this->selectedPoints)) > 0;
+    }
+
+    public function goBack()
+    {
+        if ($this->pointSelected) {
+            $this->emit('show-confirm-modal');
+        } else {
+            redirect('/rooms/' . strtolower(Student::findOrFail($this->studentId)->room->name));
+        }
+    }
+
     public function render()
     {
         $points = Point::all();
@@ -75,3 +75,4 @@ class Points extends Component
     }
 
 }
+
