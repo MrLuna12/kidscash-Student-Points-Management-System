@@ -11,10 +11,13 @@ class Points extends Component
 {
     public array $selectedPoints = [];
     public int $studentId;
+    public $pointSelected = false;
+    public $roomName;
 
     public function mount($studentId): void
     {
         $this->studentId = $studentId;
+        $this->roomName = strtolower(Student::findOrFail($this->studentId)->room->name);
     }
 
 
@@ -25,23 +28,6 @@ class Points extends Component
     }
 
 
-//    public function submitPoints()
-//    {
-//        // Perform the transaction logic here
-//        try {
-//            $totalPoints = $this->getTotalPoints();
-//            $student = Student::findOrFail($this->studentId);
-//            $student->points += $totalPoints;
-//            $student->save();
-//
-//            return redirect('/rooms/' . strtolower($student->room->name))->with('success_message', "Point transaction of $totalPoints completed");
-//
-//        } catch (\Exception $e) {
-//            // Set error message
-//            session()->flash('error_message', 'An error occurred during the transaction');
-//        }
-//    }
-
     private function performTransaction()
     {
         $totalPoints = $this->getTotalPoints();
@@ -50,7 +36,10 @@ class Points extends Component
         $student->save();
 
         // Redirect user
-        return redirect('/rooms/' . strtolower($student->room->name))->with('success_message', "Point transaction of $totalPoints completed");
+        return redirect('/rooms/' . $this->roomName)->with('success', "Point transaction of $totalPoints completed");
+
+        //Ask Dr. Wheat if he prefers this one better
+//        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name received $totalPoints points. New balance: $student->points");
     }
 
     public function submitPoints(): void
@@ -68,6 +57,23 @@ class Points extends Component
             session()->flash('error_message', 'An error occurred during the transaction.');
         }
     }
+
+    public function updatedSelectedPoints()
+    {
+        //counts the number of selected points that are not empty
+        //then compares it to 0. if it is > 0 then point selected = true
+        $this->pointSelected = count(array_filter($this->selectedPoints)) > 0;
+    }
+
+    public function goBack()
+    {
+        if ($this->pointSelected) {
+            $this->emit('show-confirm-modal');
+        } else {
+            redirect('/rooms/' . $this->roomName);
+        }
+    }
+
     public function render()
     {
         $points = Point::all();
@@ -75,3 +81,4 @@ class Points extends Component
     }
 
 }
+

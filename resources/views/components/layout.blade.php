@@ -7,8 +7,8 @@
 
         <!-- Bootstrap -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         @livewireStyles
-        @stack('other-scripts')
     </head>
 
     <body>
@@ -51,6 +51,8 @@
             </div>
         </div>
         @livewireScripts
+        @include('sweetalert::alert')
+        @stack('scripts')
     </body>
 </html>
 
