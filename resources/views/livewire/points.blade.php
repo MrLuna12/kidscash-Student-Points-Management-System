@@ -45,7 +45,7 @@
                 if (result.isConfirmed) {
                 @this.call('submitPoints');
                 } else {
-                    window.history.back();
+                    window.location.href = '/rooms/{{$roomName}}';
                 }
             });
         });

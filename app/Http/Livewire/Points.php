@@ -6,17 +6,18 @@ use App\Models\Point;
 use App\Models\Student;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class Points extends Component
 {
     public array $selectedPoints = [];
     public int $studentId;
     public $pointSelected = false;
+    public $roomName;
 
     public function mount($studentId): void
     {
         $this->studentId = $studentId;
+        $this->roomName = strtolower(Student::findOrFail($this->studentId)->room->name);
     }
 
 
@@ -35,7 +36,10 @@ class Points extends Component
         $student->save();
 
         // Redirect user
-        return redirect('/rooms/' . strtolower($student->room->name))->with('success', "Point transaction of $totalPoints completed");
+        return redirect('/rooms/' . $this->roomName)->with('success', "Point transaction of $totalPoints completed");
+
+        //Ask Dr. Wheat if he prefers this one better
+//        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name received $totalPoints points. New balance: $student->points");
     }
 
     public function submitPoints(): void
@@ -56,6 +60,8 @@ class Points extends Component
 
     public function updatedSelectedPoints()
     {
+        //counts the number of selected points that are not empty
+        //then compares it to 0. if it is > 0 then point selected = true
         $this->pointSelected = count(array_filter($this->selectedPoints)) > 0;
     }
 
@@ -64,7 +70,7 @@ class Points extends Component
         if ($this->pointSelected) {
             $this->emit('show-confirm-modal');
         } else {
-            redirect('/rooms/' . strtolower(Student::findOrFail($this->studentId)->room->name));
+            redirect('/rooms/' . $this->roomName);
         }
     }
 
