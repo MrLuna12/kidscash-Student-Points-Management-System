@@ -76,7 +76,9 @@ class Points extends Component
 
     public function render()
     {
-        $points = Point::all();
+        $points = Point::where('type', 1)
+                    ->orderBy('name')
+                    ->get();
         return view('livewire.points', compact('points'));
     }
 
