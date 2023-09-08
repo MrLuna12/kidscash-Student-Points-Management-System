@@ -16,7 +16,7 @@
                 <li class="list-group-item">
                     <input wire:model="selectedPoints.{{ $point->id }}"
                            class="form-check-input me-1"
-                           type="checkbox" id="{{$point->name}}"
+                           type="checkbox" id="{{$point->id}}"
                            value="{{$point->value}}">
 
                     <label class="form-check-label" for="{{$point->name}}">

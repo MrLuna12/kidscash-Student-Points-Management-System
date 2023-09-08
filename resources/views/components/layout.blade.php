@@ -30,11 +30,11 @@
                                 <i class="bi bi-house "><span class="ms-2 d-none d-sm-inline">Rooms</span></i>
                             </a>
                         </li>
-                        <li class="nav-item py-2 py-sm-0">
-                            <a class="nav-link d-sm-inline-block" href="/students">
-                                <i class="bi bi-people"><span class="ms-2 d-none d-sm-inline">Student</span></i>
-                            </a>
-                        </li>
+{{--                        <li class="nav-item py-2 py-sm-0">--}}
+{{--                            <a class="nav-link d-sm-inline-block" href="/students">--}}
+{{--                                <i class="bi bi-people"><span class="ms-2 d-none d-sm-inline">Student</span></i>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
 

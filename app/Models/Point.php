@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Point extends Model
 {
     protected $fillable = ['name', 'description', 'value'];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

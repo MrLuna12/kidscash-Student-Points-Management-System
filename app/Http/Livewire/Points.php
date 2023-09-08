@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Point;
 use App\Models\Student;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
@@ -32,6 +33,17 @@ class Points extends Component
     {
         $totalPoints = $this->getTotalPoints();
         $student = Student::findOrFail($this->studentId);
+
+        foreach ($this->selectedPoints as $key => $value) {
+            // Create a new transaction record
+            $transaction = new Transaction();
+            $transaction->student_id = $this->studentId;
+            $transaction->point_id = $key;
+            $transaction->amount = $value;
+            $transaction->save();
+        }
+
+
         $student->points += $totalPoints;
         $student->save();
 
