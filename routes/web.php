@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PointController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\StudentController;
 use App\Models\Room;
@@ -40,11 +41,6 @@ Route::get('/students/spend', [StudentController::class, 'spend']);
 Route::get('/rooms', [RoomController::class, 'getAllRooms']);
 Route::get('/rooms/{room:name}', [RoomController::class, 'getStudentsByRoom']);
 
-Route::get('/rooms/{room:name}/students/{student}/earn', [RoomController::class, 'getPointList']);
+Route::get('/rooms/{room:name}/students/{student}/earn', [PointController::class, 'getEarnPointList']);
 
-Route::get('/rooms/{room:name}/students/{student}/shop', function(Room $room, Student $student) {
-    return view('spend', [
-        'student' => $student,
-        'room' => $room
-    ]);
-});
+Route::get('/rooms/{room:name}/students/{student}/shop', [PointController::class, 'getSpendPointList']);
