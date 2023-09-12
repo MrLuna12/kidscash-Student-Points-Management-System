@@ -28,13 +28,8 @@ class Points extends Component
         return array_sum($this->selectedPoints);
     }
 
-
-    private function performTransaction()
-    {
-        $totalPoints = $this->getTotalPoints();
-        $student = Student::findOrFail($this->studentId);
-
-        foreach ($this->selectedPoints as $key => $value) {
+    public function createTransaction($pointArray) {
+        foreach ($pointArray as $key => $value) {
             // Create a new transaction record
             $transaction = new Transaction();
             $transaction->student_id = $this->studentId;
@@ -42,16 +37,21 @@ class Points extends Component
             $transaction->amount = $value;
             $transaction->save();
         }
+    }
 
 
+    public function performTransaction()
+    {
+        $totalPoints = $this->getTotalPoints();
+        $student = Student::findOrFail($this->studentId);
+        $this->createTransaction($this->selectedPoints);
         $student->points += $totalPoints;
         $student->save();
 
         // Redirect user
-        return redirect('/rooms/' . $this->roomName)->with('success', "Point transaction of $totalPoints completed");
+//        return redirect('/rooms/' . $this->roomName)->with('success', "Point transaction of $totalPoints completed");
 
-        //Ask Dr. Wheat if he prefers this one better
-//        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name received $totalPoints points. New balance: $student->points");
+        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name received $totalPoints points.\n New balance: $student->points");
     }
 
     public function submitPoints(): void

@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <form wire:submit.prevent="submitPoints">
+    <form wire:submit.prevent="confirmCheckout">
         @foreach($points as $point)
             <ul class="list-group">
                 <li class="list-group-item">
@@ -22,13 +22,16 @@
 
                     <label class="form-check-label" for="{{$point->name}}">
                         {{$point->name}}
-                        <span class="badge bg-primary rounded-pill">+{{$point->value}}</span>
+                        <span class="badge bg-primary rounded-pill">-{{$point->value}}</span>
                     </label>
                 </li>
             </ul>
         @endforeach
-        <button class="btn btn-primary" type="submit">Submit | Total {{$this->getTotalPoints()}}</button>
-{{--            <p>Points Selected : {{ var_export($selectedPoints) }}</p>--}}
+        @if($this->getTotalPoints() == 0)
+                <button class="btn btn-primary" type="submit">Checkout | Total {{$this->getTotalPoints()}}</button>
+            @else
+                <button class="btn btn-danger" type="submit">Checkout | Total {{$this->getTotalPoints()}}</button>
+        @endif
     </form>
 </div>
 
@@ -37,8 +40,27 @@
         Livewire.on('show-confirm-modal', () => {
             Swal.fire({
                 title: 'Save Changes?',
-                text: 'Do you want to save your changes?',
+                text: 'Do you want to redeem your points?',
                 icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                @this.call('confirmCheckout');
+                } else {
+                    window.location.href = '/rooms/{{$roomName}}';
+                }
+            });
+        });
+    </script>
+
+    <script>
+        Livewire.on('checkout-modal', () => {
+            Swal.fire({
+                title: 'Confirm Checkout?',
+                text: 'Do you want to checkout?',
+                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Yes',
                 cancelButtonText: 'No',
