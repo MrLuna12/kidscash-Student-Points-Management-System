@@ -16,6 +16,6 @@ class Transaction extends Model
 
     public function point()
     {
-        return $this->hasOne(Point::class);
+        return $this->belongsTo(Point::class);
     }
 }
