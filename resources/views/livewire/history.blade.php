@@ -10,6 +10,7 @@
             <th>Amount</th>
             <th>Date</th>
             <th>Time</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
                 <td>{{$transaction->amount}}</td>
                 <td>{{$transaction->created_at->format('m-d-Y')}}</td>
                 <td>{{$transaction->created_at->format('g:i A')}}</td>
+                <td><i class="bi bi-three-dots-vertical btn" style="color: black"></i></td>
             </tr>
         @endforeach
         </tbody>

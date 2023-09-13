@@ -13,9 +13,9 @@ class History extends Component
 
     public function render()
     {
-//        $transactions = Transaction::paginate(20);
+        $transactions = Transaction::paginate(20);
 
-        return view('livewire.history', ['transactions' => Transaction::paginate(10)])
+        return view('livewire.history', ['transactions' => Transaction::with('student', 'point')->paginate(15)])
             ->layout('components.layout');
     }
 }
