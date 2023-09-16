@@ -12,6 +12,7 @@
     </head>
 
     <body>
+
         <!-- Main Body Container -->
         <div class="container-fluid">
             <div class="row">
@@ -40,7 +41,7 @@
                 </div>
 
                 <!-- Middle Column main content column -->
-                <div class="col-10 col-sm-10 pt-5" id="main-content">
+                <div class="col-10 col-sm-10 pt-3" id="main-content">
                     {{-- <div class="col-12 bg-white ">
                             <h3>Woodlake Kids</h3>
 

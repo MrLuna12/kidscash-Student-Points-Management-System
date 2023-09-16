@@ -1,0 +1,6 @@
+/* UP & DOWN ARROW*/
+i.bi-arrow-up, i.bi-arrow-down {
+    color: black;
+    font-size: small;
+    cursor: pointer;
+}

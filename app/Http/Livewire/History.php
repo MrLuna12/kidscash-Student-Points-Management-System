@@ -13,6 +13,8 @@ class History extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $sortField = 'created_at';
+    public $sortDirection = 'desc';
 
     public function mount(Request $request, Room $room, Student $student): void
     {
@@ -20,9 +22,23 @@ class History extends Component
         $this->room = $room;
     }
 
+    public function sortBy($field) {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->swapSortDirection();
+        } else {
+            $this->sortDirection = 'asc';
+        }
+        $this->sortField = $field;
+    }
+
+    public function swapSortDirection() {
+        return $this->sortDirection === 'asc' ? 'desc' : 'asc';
+    }
+
     public function render()
     {
         $transactions = Transaction::with('point')
+            ->orderBy($this->sortField, $this->sortDirection)
             ->paginate(15);
 
         return view('livewire.history', compact('transactions'))
