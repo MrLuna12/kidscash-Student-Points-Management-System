@@ -3,6 +3,7 @@
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\StudentController;
+use App\Http\Livewire\History;
 use App\Models\Room;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -44,3 +45,5 @@ Route::get('/rooms/{room:name}', [RoomController::class, 'getStudentsByRoom']);
 Route::get('/rooms/{room:name}/students/{student}/earn', [PointController::class, 'getEarnPointList']);
 
 Route::get('/rooms/{room:name}/students/{student}/shop', [PointController::class, 'getSpendPointList']);
+
+Route::get('/rooms/{room:name}/students/{student}/history/', History::class);
