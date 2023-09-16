@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 //This is for the log-in stuff
-// Route::get('/', function () {
-//    //return view('students', ["students"=>Student::all()]);
-//    return view('home');
-// });
+ Route::get('/', function () {
+    //return view('students', ["students"=>Student::all()]);
+    return view('home');
+ });
 //
 //Auth::routes();
 //
