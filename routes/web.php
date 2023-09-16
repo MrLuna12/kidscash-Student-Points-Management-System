@@ -46,4 +46,4 @@ Route::get('/rooms/{room:name}/students/{student}/earn', [PointController::class
 
 Route::get('/rooms/{room:name}/students/{student}/shop', [PointController::class, 'getSpendPointList']);
 
-Route::get('/history', History::class);
+Route::get('/rooms/{room:name}/students/{student}/history/', History::class);

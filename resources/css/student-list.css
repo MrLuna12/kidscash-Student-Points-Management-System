@@ -38,3 +38,7 @@ a.minus:active {
     color: #dc3545;
 }
 
+a.dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+

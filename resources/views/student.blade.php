@@ -33,9 +33,15 @@
                         </a>
                     </td>
                     <td class="dropdown">
-                        <i class="bi bi-three-dots-vertical" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color: black"></i>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        <i class="bi bi-three-dots-vertical" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black"></i>
+                        <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <a class="dropdown-item" href="{{strtolower($room->name)}}/students/{{$student->id}}/history">
+                                    <i class="bi bi-clock-history" style="color: black">
+                                        History
+                                    </i>
+                                </a>
+                            </li>
                         </ul>
                     </td>
                 </tr>

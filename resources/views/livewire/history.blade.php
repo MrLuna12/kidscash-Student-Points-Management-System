@@ -1,10 +1,11 @@
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <h1>History Page</h1>
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>Name</th>
+            <th>Room</th>
             <th>Type</th>
             <th>Item</th>
             <th>Amount</th>
@@ -16,13 +17,14 @@
         <tbody>
         @foreach ($transactions as $transaction)
             <tr>
-                <td>{{$transaction->student->name}}</td>
+                <td>{{$student->name}}</td>
                 @if($transaction->type == 1)
                     <td>earn</td>
                 @else
                     <td>spend</td>
                 @endif
                 <td>{{$transaction->point->name}}</td>
+                <td>{{$room->name}}</td>
                 <td>{{$transaction->amount}}</td>
                 <td>{{$transaction->created_at->format('m-d-Y')}}</td>
                 <td>{{$transaction->created_at->format('g:i A')}}</td>
