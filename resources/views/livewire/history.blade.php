@@ -39,17 +39,21 @@
             @foreach ($transactions as $transaction)
                 <tr>
                     <td>{{$transaction->created_at->format('m-d-Y')}}</td>
-                    @if($transaction->type == 1)
-                        <td>earn</td>
-                    @else
-                        <td>spend</td>
-                    @endif
+                    <td>{{$transaction->type}}</td>
                     <td>{{$transaction->point->name}}</td>
 {{--                    <td>{{$room->name}}</td>--}}
                     <td>{{$transaction->amount}}</td>
 {{--                    <td>{{$transaction->created_at->format('g:i A')}}</td>--}}
-                    @if($transaction->type == 0)
-                    <td><i class="bi bi-three-dots-vertical btn" style="color: black"></i></td>
+                    @if($transaction->type === 'Spent')
+                        <td class="dropdown">
+                            <i class="bi bi-three-dots-vertical" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black"></i>
+                            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton">
+                                <li class="dropdown-item">
+                                    Refund
+                                    <i class="bi bi-box-arrow-right" style="color: black"></i>
+                                </li>
+                            </ul>
+                        </td>
                     @else
                         <td> </td>
                     @endif

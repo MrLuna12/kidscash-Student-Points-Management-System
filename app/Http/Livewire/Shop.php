@@ -16,7 +16,7 @@ class Shop extends Points
             $transaction->student_id = $this->studentId;
             $transaction->point_id = $key;
             $transaction->amount = $value;
-            $transaction->type = 0;
+            $transaction->type = 'Spent';
             $transaction->save();
         }
     }
