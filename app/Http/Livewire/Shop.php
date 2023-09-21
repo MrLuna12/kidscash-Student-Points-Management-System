@@ -16,7 +16,7 @@ class Shop extends Points
             $transaction->student_id = $this->studentId;
             $transaction->point_id = $key;
             $transaction->amount = $value;
-            $transaction->type = 0;
+            $transaction->type = 'Spent';
             $transaction->save();
         }
     }
@@ -33,7 +33,7 @@ class Shop extends Points
             return;
         }
 
-        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name redeemed $totalPoints points.\n New balance: $student->points");
+        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name spent $totalPoints points.\n New balance: $student->points");
     }
 
     public function confirmCheckout(): void

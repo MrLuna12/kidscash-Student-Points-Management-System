@@ -4,3 +4,7 @@ i.bi-arrow-up, i.bi-arrow-down {
     font-size: small;
     cursor: pointer;
 }
+
+li.dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
