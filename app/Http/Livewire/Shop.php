@@ -33,7 +33,7 @@ class Shop extends Points
             return;
         }
 
-        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name redeemed $totalPoints points.\n New balance: $student->points");
+        return redirect('/rooms/' . $this->roomName)->with('success', "$student->name spent $totalPoints points.\n New balance: $student->points");
     }
 
     public function confirmCheckout(): void

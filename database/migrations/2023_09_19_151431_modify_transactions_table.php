@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('transactions', function (Blueprint $table) {
             // Modify the 'type' column to a new data type
-            $table->enum('type', ['Earned', 'Spent', 'Refund'])->default('Earned')->change();
+            $table->enum('type', ['Earned', 'Spent', 'Refunded'])->default('Earned')->change();
         });
     }
 
