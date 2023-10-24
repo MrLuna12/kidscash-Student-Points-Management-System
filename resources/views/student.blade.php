@@ -9,6 +9,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <div>
+        @livewire('new-student')
+    </div>
     <table class="table table-hover" style="width: 100%">
         <caption>List of Students</caption>
         <thead>

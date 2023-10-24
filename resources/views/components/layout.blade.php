@@ -31,6 +31,14 @@
                                 <i class="bi bi-house "><span class="ms-2 d-none d-sm-inline">Rooms</span></i>
                             </a>
                         </li>
+
+                        @if(Auth::user()->role == 1)
+                        <li class="nav-item py-2 py-sm-0">
+                            <a class="nav-link d-sm-inline-block" href="/admin">
+                                <i class="bi bi-person-fill-gear "><span class="ms-2 d-none d-sm-inline">Admin</span></i>
+                            </a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
 
@@ -40,6 +48,40 @@
                             <h3>Woodlake Kids</h3>
 
                         </div> --}}
+                    <ul class="nav float-end">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
 
                     {{-- Put your main content here --}}
                    {{$slot}}
@@ -51,23 +93,3 @@
         @stack('scripts')
     </body>
 </html>
-
-
-
-{{--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et consectetur metus. Aenean rutrum odio--}}
-{{--                    ac sodales gravida. Proin in mi eget erat porta semper a dictum mi. Nam velit orci, sollicitudin ut--}}
-{{--                    ullamcorper in, semper lacinia nisl. Nunc ante sapien, lobortis sit amet aliquet eu, condimentum cons--}}
-{{--                    ectetur purus. Integer ornare ante quis lacus consectetur, vulputate interdum dui pellentesque. Sed f--}}
-{{--                    inibus nibh at mollis laoreet. Nam dictum euismod feugiat. In vitae lobortis massa, convallis aliqua--}}
-{{--                    m ligula. Cras eget mauris justo. Aliquam erat volutpat. Quisque metus ligula, accumsan vitae sem a,--}}
-{{--                    sodales scelerisque nibh. Praesent vitae congue leo. Mauris aliquam dictum nisl id vulputate. Donec--}}
-{{--                    congue lorem sit amet enim lacinia dignissim. Praesent facilisis vel ex ultricies consequat. Morbi--}}
-{{--                    vehicula justo id elit tincidunt, in feugiat l ectus pharetra. Nunc hendrerit enim a tincidunt--}}
-{{--                    suscipit. Aliquam tempor odio vel est gravida pulvinar. Pellentesque convallis metus orci, in posuere--}}
-{{--                    augue euismod dapibus. Sed non congue justo. Class aptent taciti sociosqu ad litora torquent per--}}
-{{--                    conubia nostra, per inceptos himenaeos. In sed faucibus sem. Aliquam augue tellus, sodales nec--}}
-{{--                    quam ut, blandit fermentum sapien. Donec varius, arcu in lobo rtis finibus, nisi metus posuere mi,--}}
-{{--                    id volutpat magna erat quis tortor. Fusce lacinia volutpat ipsu m at maximus. Sed sit amet dui a--}}
-{{--                    velit rhoncus tincidunt. Phasellus non leo ornare mauris laoreet co ngue et sed libero. Curabitur--}}
-{{--                    molestie porta turpis, quis pulvinar mauris suscipit nec.--}}
-{{--                </p>--}}
