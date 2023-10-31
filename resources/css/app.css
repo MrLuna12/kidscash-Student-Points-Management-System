@@ -1,3 +1,59 @@
+/*Landing Page*/
+html, body {
+    width: 100%;
+    height: 100%;
+}
+/*body {*/
+/*    overflow-anchor: none;*/
+/*}*/
+#app{
+    background-color: #2A364B;
+}
+a.navbar-brand {
+    max-width: 100px;
+    min-width: 60px;
+}
+
+li.nav-item, a.nav-link {
+    font-size: 20px;
+    color: white;
+}
+
+li.nav-item:hover {
+    color: white;
+    background-color: #fba217;
+    border: black 1px solid;
+    border-radius: 20px;
+}
+
+#home {
+    background: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.64)), url(/public/images/kidschurch.jpg) no-repeat center center fixed;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+#home {
+    display: flex;
+    /*align-items: center;*/
+}
+
+.landing-text {
+    padding-top: 300px;
+    text-align: center;
+    color: white;
+}
+
+.landing-text h1 {
+    font-size: 100px;
+}
+
+.landing-text h3 {
+    font-size: 40px;
+}
+
+
 /*SIDEBAR*/
 #sidebar {
     background-color: #2A364B;
