@@ -1,3 +1,86 @@
+/*Landing Page*/
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    /*font-family: 'Roboto', sans-serif;*/
+    text-decoration: none;
+    /*font-family: 'Bebas Neue', sans-serif;*/
+}
+
+
+#app{
+    background-color: #2A364B;
+}
+a.navbar-brand {
+    max-width: 100px;
+    min-width: 60px;
+}
+
+/*a.login {*/
+/*    font-size: 20px;*/
+/*    color: white;*/
+/*}*/
+
+/*li.nav-item:hover {*/
+/*    color: white !important;*/
+/*    background-color: #fba217;*/
+/*    border: black 1px solid;*/
+/*    border-radius: 20px;*/
+/*}*/
+
+#homenav li.nav-item a.nav-link {
+    font-size: 16px; /* Adjust the font size as needed */
+    color: white; /* Default text color */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover styles for navigation links */
+#homenav li.nav-item:hover a.nav-link {
+    color: white; /* Text color when hovered */
+    background-color: #386a8e; /* Background color when hovered */
+    /*border: 1px solid black; !* Border when hovered *!*/
+    border-radius: 10px; /* Border radius when hovered */
+}
+
+.navbar-toggler {
+    background-color: #386a8e;
+}
+
+#home {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.64)), url(/public/images/kidschurch.jpg) no-repeat center center fixed;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+#home {
+    display: flex;
+    /*align-items: center;*/
+}
+
+.landing-text {
+    padding-top: 250px;
+    text-align: center;
+    color: white;
+}
+
+.landing-text h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 100px;
+}
+
+.landing-text h3 {
+    font-size: 40px;
+}
+
+
 /*SIDEBAR*/
 #sidebar {
     background-color: #2A364B;
@@ -31,5 +114,10 @@ i.bi.bi-backspace {
     color: black;
     font-size: 16px;
     font-style: normal;
+}
+
+#sidebar i.bi:hover {
+    text-decoration: underline;
+
 }
 
