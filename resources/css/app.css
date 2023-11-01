@@ -5,8 +5,9 @@ html, body {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
     text-decoration: none;
+    /*font-family: 'Bebas Neue', sans-serif;*/
 }
 
 
@@ -34,16 +35,16 @@ a.navbar-brand {
     font-size: 16px; /* Adjust the font size as needed */
     color: white; /* Default text color */
     text-decoration: none; /* Remove underline from links */
-    border-radius: 20px;
+    border-radius: 10px;
     transition: all 0.3s ease; /* Smooth transition effect */
 }
 
 /* Hover styles for navigation links */
 #homenav li.nav-item:hover a.nav-link {
     color: white; /* Text color when hovered */
-    background-color: #fba217; /* Background color when hovered */
-    border: 1px solid black; /* Border when hovered */
-    border-radius: 20px; /* Border radius when hovered */
+    background-color: #386a8e; /* Background color when hovered */
+    /*border: 1px solid black; !* Border when hovered *!*/
+    border-radius: 10px; /* Border radius when hovered */
 }
 
 .navbar-toggler {
@@ -51,7 +52,7 @@ a.navbar-brand {
 }
 
 #home {
-    background: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.64)), url(/public/images/kidschurch.jpg) no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.64)), url(/public/images/kidschurch.jpg) no-repeat center center fixed;
     height: 100%;
     position: relative;
     width: 100%;
@@ -113,5 +114,10 @@ i.bi.bi-backspace {
     color: black;
     font-size: 16px;
     font-style: normal;
+}
+
+#sidebar i.bi:hover {
+    text-decoration: underline;
+
 }
 
