@@ -67,12 +67,3 @@
         </div>
     </div>
 </div>
-{{--                        @forelse($user->rooms as $room)--}}
-{{--                            {{$room->name}}--}}
-{{--                            @unless($loop->last)--}}
-{{--                                ,--}}
-{{--                            @endunless--}}
-{{--                        @empty--}}
-{{--                            No rooms assigned--}}
-{{--                        @endforelse--}}
-
