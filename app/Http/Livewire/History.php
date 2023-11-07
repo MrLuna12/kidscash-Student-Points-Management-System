@@ -10,10 +10,8 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class History extends Component
+class History extends Table
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
     public $sortField = 'created_at';
     public $sortDirection = 'desc';
 
@@ -23,18 +21,6 @@ class History extends Component
         $this->room = $room;
     }
 
-    public function sortBy($field) {
-        if ($this->sortField === $field) {
-            $this->sortDirection = $this->swapSortDirection();
-        } else {
-            $this->sortDirection = 'asc';
-        }
-        $this->sortField = $field;
-    }
-
-    public function swapSortDirection() {
-        return $this->sortDirection === 'asc' ? 'desc' : 'asc';
-    }
 
 
     public function refund($transactionId) {

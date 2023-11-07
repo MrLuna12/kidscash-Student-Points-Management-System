@@ -3,6 +3,8 @@
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\StudentController;
+use App\Http\Livewire\Admin;
+use App\Http\Livewire\Edit;
 use App\Http\Livewire\History;
 use App\Models\Room;
 use App\Models\Student;
@@ -30,11 +32,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Route::get('/students', [StudentController::class, 'index']);
-
-Route::get('/students/add', [StudentController::class, 'add']);
-Route::get('/students/spend', [StudentController::class, 'spend']);
+//Route::get('/students', [StudentController::class, 'index']);
+//
+//Route::get('/students/add', [StudentController::class, 'add']);
+//Route::get('/students/spend', [StudentController::class, 'spend']);
 
 
 Route::middleware('auth')->group(function() {
@@ -46,8 +47,7 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::middleware('auth.admin')->group(function() {
-    Route::get('/admin', function () {
-        return view ('admin');
-    });
+    Route::get('/admin', Admin::class);
+    Route::get('/admin/edit/{id}', Edit::class)->name('admin.edit');
 });
 
