@@ -1,6 +1,5 @@
 <div>
     @vite('resources/css/history-table.css')
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <h1>History Page</h1>
     <a class="btn float-end" href="/rooms/{{strtolower($room->name)}}">
         <i class="bi bi-backspace"> Go Back</i>
