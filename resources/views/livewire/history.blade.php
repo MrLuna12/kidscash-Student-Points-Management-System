@@ -26,13 +26,11 @@
                     <i class="bi bi-arrow-up {{$sortField === 'item' && $sortDirection === 'asc' ? '' : 'text-muted'}}"></i>
                     <i class="bi bi-arrow-down {{$sortField === 'item' && $sortDirection === 'desc' ? '' : 'text-muted'}}"></i>
                 </th>
-{{--                <th>Room</th>--}}
                 <th wire:click="sortBy('amount')">
                     Amount
                     <i class="bi bi-arrow-up {{$sortField === 'amount' && $sortDirection === 'asc' ? '' : 'text-muted'}}"></i>
                     <i class="bi bi-arrow-down {{$sortField === 'amount' && $sortDirection === 'desc' ? '' : 'text-muted'}}"></i>
                 </th>
-{{--                <th wire:click="sortBy('created_at')" >Time</th>--}}
                 <th wire:click="sortBy('type')">
                     Type
                     <i class="bi bi-arrow-up {{$sortField === 'type' && $sortDirection === 'asc' ? '' : 'text-muted'}}"></i>
@@ -46,13 +44,11 @@
                 <tr>
                     <td>{{$transaction->created_at->format('m-d-Y')}}</td>
                     <td>{{$transaction->point->name}}</td>
-{{--                    <td>{{$room->name}}</td>--}}
                     @if($transaction->type === 'Spent')
                         <td style="color: red">{{-$transaction->amount}}</td>
                     @else
                         <td>{{$transaction->amount}}</td>
                     @endif
-{{--                    <td>{{$transaction->created_at->format('g:i A')}}</td>--}}
                     <td>
                         @if($transaction->type === 'Spent')
                             <span class="badge text-bg-danger">{{$transaction->type}}</span>
