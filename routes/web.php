@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Livewire\Admin;
 use App\Http\Livewire\Edit;
 use App\Http\Livewire\History;
+use App\Http\Livewire\StudentTable;
 use App\Models\Room;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -32,15 +33,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Route::get('/students', [StudentController::class, 'index']);
-//
-//Route::get('/students/add', [StudentController::class, 'add']);
-//Route::get('/students/spend', [StudentController::class, 'spend']);
 
+Route::middleware('auth')->get('/rooms', [RoomController::class, 'getUserRooms']);
 
-Route::middleware('auth')->group(function() {
-    Route::get('/rooms', [RoomController::class, 'getAllRooms']);
-    Route::get('/rooms/{room:name}', [RoomController::class, 'getStudentsByRoom']);
+Route::middleware(['auth', 'room.assignment'])->group(function() {
+    Route::get('/rooms/{room:name}', StudentTable::class);
     Route::get('/rooms/{room:name}/students/{student}/earn', [PointController::class, 'getEarnPointList']);
     Route::get('/rooms/{room:name}/students/{student}/shop', [PointController::class, 'getSpendPointList']);
     Route::get('/rooms/{room:name}/students/{student}/history/', History::class);
