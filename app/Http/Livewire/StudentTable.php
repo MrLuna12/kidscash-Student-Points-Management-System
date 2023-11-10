@@ -14,20 +14,7 @@ class StudentTable extends Table
 
     public function mount(Room $room): void
     {
-        // Get the currently logged-in user
-        $user = Auth::user();
-
-        // Access the rooms that the user is assigned to
-        $userRooms = $user->rooms;
-
-        // Check if the user is assigned to the requested room
-        if ($userRooms->contains($room)) {
-            // Set the room
-            $this->room = $room;
-        } else {
-            // If the user doesn't have access to the requested room
-             redirect('/rooms')->with('error', 'You do not have access to this room.');
-        }
+        $this->room = $room;
     }
     public function render()
     {

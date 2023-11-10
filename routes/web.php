@@ -33,14 +33,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Route::get('/students', [StudentController::class, 'index']);
-//
-//Route::get('/students/add', [StudentController::class, 'add']);
-//Route::get('/students/spend', [StudentController::class, 'spend']);
 
+Route::middleware('auth')->get('/rooms', [RoomController::class, 'getUserRooms']);
 
-Route::middleware('auth')->group(function() {
-    Route::get('/rooms', [RoomController::class, 'getUserRooms']);
+Route::middleware(['auth', 'room.assignment'])->group(function() {
     Route::get('/rooms/{room:name}', StudentTable::class);
     Route::get('/rooms/{room:name}/students/{student}/earn', [PointController::class, 'getEarnPointList']);
     Route::get('/rooms/{room:name}/students/{student}/shop', [PointController::class, 'getSpendPointList']);
