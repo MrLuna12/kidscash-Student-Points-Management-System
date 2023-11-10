@@ -1,3 +1,9 @@
+i.bi-arrow-up, i.bi-arrow-down {
+    color: black;
+    font-size: small;
+    cursor: pointer;
+}
+
 /* PLUS BUTTON */
 a.plus i.bi-plus-circle {
     color: #198754;
