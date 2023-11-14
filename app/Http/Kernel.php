@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'auth.admin' => \App\Http\Middleware\AdminMiddleware::class,
-        'room.assignment' => \App\Http\Middleware\RoomAssignmentMiddleware::class
+        'livewire.room.assignment' => \App\Http\Middleware\BladeRoomAssignment::class,
+        'blade.room.assignment' => \App\Http\Middleware\LiveRoomAssignment::class
     ];
 }
