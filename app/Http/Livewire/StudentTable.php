@@ -10,7 +10,7 @@ class StudentTable extends Table
 {
     public $room;
     public $sortField = 'name';
-    public $sortDirection = 'desc';
+    public $sortDirection = 'asc';
 
     public function mount(Room $room): void
     {

@@ -17,7 +17,7 @@ class RoomController extends Controller
         return view('room', ['rooms' => $rooms]);
     }
 
-    public function getStudentsByRoom(Request $request, Room $room) {
+    public function getStudentsByRoom(Room $room) {
         return view('student', ['room' => $room]);
     }
 

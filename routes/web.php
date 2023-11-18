@@ -37,11 +37,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->get('/rooms', [RoomController::class, 'getUserRooms']);
 
 Route::middleware(['auth', 'livewire.room.assignment'])->group(function() {
-    Route::get('/rooms/{room:name}', StudentTable::class);
     Route::get('/rooms/{room:name}/students/{student}/history', History::class);
 });
 
 Route::middleware(['auth', 'blade.room.assignment'])->group(function() {
+    Route::get('/rooms/{room:name}', [RoomController::class, 'getStudentsByRoom']);
     Route::get('/rooms/{room:name}/students/{student}/earn', [PointController::class, 'getEarnPointList']);
     Route::get('/rooms/{room:name}/students/{student}/shop', [PointController::class, 'getSpendPointList']);
 });

@@ -10,11 +10,14 @@
         </div>
     @endif
     <div>
-        @livewire('new-student')
+{{--        <a href="/rooms/{{strtolower($room->name)}}/add" class="btn btn-primary float-end mb-3">--}}
+{{--            <i class="bi bi-plus-circle"> Add student</i>--}}
+{{--        </a>--}}
+        @livewire('new-student', ['room' => $room])
     </div>
 
     <div>
-        @livewire('student-table')
+        @livewire('student-table', ['room' => $room])
     </div>
 </x-layout>
 
