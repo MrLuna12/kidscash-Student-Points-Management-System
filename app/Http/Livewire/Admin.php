@@ -11,8 +11,8 @@ use Livewire\WithPagination;
 class Admin extends Table
 {
     public $sortField = 'name';
-    public $sortDirection = 'desc';
-    
+    public $sortDirection = 'asc';
+
 
     public function render()
     {
