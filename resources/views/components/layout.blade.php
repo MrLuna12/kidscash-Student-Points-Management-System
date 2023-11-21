@@ -20,7 +20,7 @@
                 <div class="col-2 col-sm-2 min-vh-100" id="sidebar">
                     <ul class="nav mt-4 flex-column align-content-center">
                         <li class="nav-item py-2 py-sm-0">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/rooms">
                                 <div class="logo-container">
                                     <img class="img-fluid" alt="Woodlake Kids logo" src={{URL::asset('/images/logo.png')}}>
                                 </div>
