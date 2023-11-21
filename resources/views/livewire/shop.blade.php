@@ -12,20 +12,33 @@
 
     <form wire:submit.prevent="confirmCheckout">
         @foreach($points as $point)
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <input wire:model="selectedPoints.{{ $point->id }}"
-                           class="form-check-input me-1"
-                           type="checkbox"
-                           id="{{$point->id}}"
-                           value="{{$point->value}}">
+            @if($point->quantity > 0)
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <input wire:model="selectedPoints.{{ $point->id }}"
+                               class="form-check-input me-1"
+                               type="checkbox"
+                               id="{{$point->id}}"
+                               value="{{$point->value}}">
 
-                    <label class="form-check-label" for="{{$point->name}}">
-                        {{$point->name}}
-                        <span class="badge bg-primary rounded-pill">-{{$point->value}}</span>
-                    </label>
-                </li>
-            </ul>
+                        <label class="form-check-label" for="{{$point->name}}">
+                            {{$point->name}}
+                            <span class="badge bg-primary rounded-pill">-{{$point->value}}</span>
+                        </label>
+                    </li>
+                </ul>
+            @else
+                <ul class="list-group disabled">
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" id="{{$point->id}}" value="{{$point->value}}" disabled>
+                        <label class="form-check-label" for="{{$point->name}}">
+                            {{$point->name}}
+                            <span class="badge bg-primary rounded-pill">-{{$point->value}}</span>
+                        </label>
+                        <div id="disabledHelp" class="form-text">Out of stock</div>
+                    </li>
+                </ul>
+            @endif
         @endforeach
         @if($this->getTotalPoints() == 0)
                 <button class="btn btn-primary" type="submit">Checkout | Total {{$this->getTotalPoints()}}</button>

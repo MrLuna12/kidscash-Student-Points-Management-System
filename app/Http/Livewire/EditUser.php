@@ -6,7 +6,7 @@ use App\Models\Room;
 use App\Models\User;
 use Livewire\Component;
 
-class Edit extends Component
+class EditUser extends Component
 {
     public $selectedRooms = [];
     public $isAdmin;
@@ -68,7 +68,7 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.edit')
+        return view('livewire.edit-user')
             ->layout('components.layout');
     }
 }

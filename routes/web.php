@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\StudentController;
-use App\Http\Livewire\Admin;
-use App\Http\Livewire\Edit;
+use App\Http\Livewire\AdminUser;
+use App\Http\Livewire\EditInventory;
+use App\Http\Livewire\EditUser;
 use App\Http\Livewire\History;
 use App\Http\Livewire\StudentTable;
 use App\Models\Room;
@@ -47,7 +49,8 @@ Route::middleware(['auth', 'blade.room.assignment'])->group(function() {
 });
 
 Route::middleware('auth.admin')->group(function() {
-    Route::get('/admin', Admin::class);
-    Route::get('/admin/edit/{id}', Edit::class)->name('admin.edit');
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/edit/user/{id}', EditUser::class)->name('edit.user');
+    Route::get('/admin/edit/inventory/{id}', EditInventory::class)->name('edit.inventory');
 });
 
