@@ -1,7 +1,7 @@
 <div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary float-end mb-3" data-bs-toggle="modal" data-bs-target="#addStudentModal">
-        <i class="bi bi-plus-circle"> Add student</i>
+        <i class="bi bi-plus-circle"> Add Student</i>
     </button>
 
     <!-- Modal -->
