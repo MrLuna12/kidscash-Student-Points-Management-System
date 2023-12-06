@@ -18,6 +18,12 @@ class Shop extends Points
             $transaction->amount = $value;
             $transaction->type = 'Spent';
             $transaction->save();
+
+            //Subtract one from the inventory
+            $point = Point::findOrFail($key);
+            $point->quantity--;
+            $point->save();
+
         }
     }
     public function performTransaction()
