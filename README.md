@@ -35,7 +35,6 @@ To set up the Kids Cash development environment locally, follow these steps:
 5. Run the development server: `php artisan serve`
 6. Access the application in your web browser: `http://localhost:8000`
 
-For detailed instructions and customization, refer to the [Documentation](docs/README.md).
 
 ## Project Status
 
