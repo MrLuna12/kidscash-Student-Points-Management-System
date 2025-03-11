@@ -1,11 +1,4 @@
 # Kids Cash Development System
-
-⚠️ **Notice: This Software is No Longer Actively Maintained**
-
-Kids Cash was developed to meet specific needs, but as of 01/08/24, active development and updates for this software have been discontinued. The application is provided here in its last stable state, and no further updates are planned.
-
-## Overview
-
 ![Kids Cash Main Page](public/images/frontpage.png)
 
 Kids Cash is a web application designed to help churches manage and track students' points earned through various activities, achievements, and behaviors. The system provides a user-friendly interface for users to assign points, view student profiles, and generate reports.
